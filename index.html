@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        #book{
+            height: 60px;
+            width: 100%;
+            border: 1px solid red;
+            text-align: center;
+            font-size: 35px;
+            padding-top: 10px;
+            background-color: rgb(52, 106, 198);
+            color: white;
+        }
+        #container{
+            display: flex;
+            flex-wrap: wrap;
+            /* justify-content: space-evenly; */
+            height: fit-content;
+            width: fit-content;
+            
+           
+        }
+        .boxes{
+            height: 150px;
+            width: 200px;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+            border-top: 1px solid black;
+            /* border: 1px solid black; */
+            border-radius: 20px;
+            font-size: 25px;
+            text-align: center;
+            padding-top: 20px;
+            
+            
+        }
+        #status{
+            height: 20px;
+            width: 20px;
+            background-color: grey;
+            margin-top: 20px;
+            margin-left: 5px;
+            display: inline-block;
+        }
+       
+    </style>
+</head>
+<body>
+    <div id="book">Book Now!</div>
+        <div id="container">
+    <div class="boxes" id="box1" onclick="allocation(0)">Book S-0</div>
+    <div class="boxes" id="box2" onclick="allocation(1)">Book S-1</div>
+    <div class="boxes" id="box3" onclick="allocation(2)">Book S-2</div>
+    <div class="boxes" id="box4"onclick="allocation(3)" >Book S-3</div>
+    <div class="boxes" id="box5"onclick="allocation(4)">Book S-4</div>
+    <div class="boxes" id="box6"onclick="allocation(5)">Book S-5</div>
+    <div class="boxes" id="box7"onclick="allocation(6)">Book S-6</div>
+    <div class="boxes" id="box8"onclick="allocation(7)">Book S-7</div>
+    <div class="boxes" id="box9"onclick="allocation(8)">Book S-8</div>
+    <div class="boxes" id="box10"onclick="allocation(9)">Book S-9</div>
+        </div>
+        <div id="status"></div>
+       <b>Already Booked Seat</b> 
+    <script>
+        var a = document.getElementById("box1")
+        var b = document.getElementById("box2")
+        var c = document.getElementById("box3")
+        var d = document.getElementById("box4")
+        var e = document.getElementById("box5")
+        var f = document.getElementById("box6")
+        var g = document.getElementById("box7")
+        var h = document.getElementById("box8")
+        var i = document.getElementById("box9")
+        var j = document.getElementById("box10")
+        let seat = [1,1,1,1,1,1,1,1,1,1];
+        var ids = [a,b,c,d,e,f,g,h,i,j]
+        function allocation(s){
+            if(seat[s]==1){
+            alert("Want to confirm your booking ?")
+            
+            ids[s].innerHTML="Booking..."
+            
+            setTimeout(()=>{
+                ids[s].style.backgroundColor='grey';
+            ids[s].innerHTML="Booked"
+            seat[s]=0;
+            },1000)
+            
+
+        }
+        else{
+            alert("****Seat Already Booked!****")
+        }
+    }
+    </script>
+
+</body>
+</html>
